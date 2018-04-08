@@ -1,0 +1,56 @@
+{
+  "name": "fp-typed-install",
+  "version": "0.0.1",
+  "description": "A porting of typed-install using functional style",
+  "files": ["lib"],
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "scripts": {
+    "lint": "tslint -p tsconfig.json src/**/*.ts test/**/*.ts",
+    "mocha": "mocha -r ts-node/register test/*.ts",
+    "prettier":
+      "prettier --no-semi --single-quote --print-width 120 --parser typescript --list-different \"{src,test}/**/*.ts\"",
+    "fix-prettier":
+      "prettier --no-semi --single-quote --print-width 120 --parser typescript --write \"{src,test}/**/*.ts\"",
+    "test": "npm run prettier && npm run lint && npm run mocha",
+    "clean": "rm -rf lib/*",
+    "build": "npm run clean && tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gcanti/fp-typed-install.git"
+  },
+  "author": "Giulio Canti <giulio.canti@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gcanti/fp-typed-install/issues"
+  },
+  "homepage": "https://github.com/gcanti/fp-typed-install",
+  "dependencies": {
+    "fp-ts": "^1.2.0",
+    "got": "8.3.0",
+    "mz": "2.7.0",
+    "ora": "2.0.0",
+    "shelljs": "0.8.1"
+  },
+  "devDependencies": {
+    "@types/got": "7.1.8",
+    "@types/lodash": "^4.14.106",
+    "@types/mocha": "2.2.38",
+    "@types/mz": "0.0.32",
+    "@types/node": "8.0.19",
+    "@types/shelljs": "0.7.8",
+    "commander": "^2.15.1",
+    "heroku-config": "^1.5.0",
+    "lodash": "^4.17.5",
+    "mocha": "3.2.0",
+    "prettier": "1.11.1",
+    "ts-node": "3.3.0",
+    "tslint": "5.9.1",
+    "tslint-config-standard": "7.0.0",
+    "typescript": "2.7.2",
+    "typings-checker": "1.1.2"
+  },
+  "tags": [],
+  "keywords": []
+}
