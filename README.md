@@ -1,10 +1,10 @@
-Un porting di [typed-install](https://github.com/xavdid/typed-install) in stile funzionale.
+A functionally-flavored porting of [typed-install](https://github.com/xavdid/typed-install).
 
-Differenze rispetto all'originale:
+Differences from the original:
 
-* il file `util.ts` è stato rinominato in `unsafe-utils.ts`
-  * la procedura `printPackages` è stata rimossa
-* il file `ora.d.ts` è stato sostituito con `ora.ts` contenente API pure
-* il file `index.ts` è stato completamente riscritto
-* il file `cli.ts` ha subito modifiche di poco conto
-* i test sono stati completamente riscritti (non c'è mock del file system)
+* `util.ts` renamed to `unsafe-utils.ts`
+  * `printPackages` removed
+* `ora.d.ts` replaced with `ora.ts`
+* `index.ts` completely rewritten
+* `cli.ts` is slightly changed
+* tests completely rewritten without mocking the file system
