@@ -5,22 +5,22 @@ import { resolve } from 'path'
 
 const REGISTRY_URL = 'https://registry.npmjs.org'
 
-const parseOpts = (dev: boolean, yarn: boolean) => {
+const parseOpts = (_dev: boolean, yarn: boolean) => {
   return {
     command: yarn ? 'yarn add' : 'npm i',
     devFlag: yarn ? '--dev' : '-D'
   }
 }
 
-export const npmInstall = (modules: string[], dev: boolean, yarn = false): Promise<string> => {
+export const npmInstall = (modules: Array<string>, dev: boolean, yarn = false): Promise<string> => {
   const { command, devFlag } = parseOpts(dev, yarn)
 
   return new Promise((res, rej) =>
     sh.exec(
       [command, dev ? devFlag : '', ...modules].join(' '),
       { async: true, silent: true },
-      (code, stdout, stderr) => {
-        if (code) {
+      (code: number | undefined, stdout, stderr) => {
+        if (code !== undefined) {
           rej(stderr)
         }
         res(stdout)
@@ -66,6 +66,7 @@ export const missingTypes = async (m: string): Promise<string | null> => {
       return m
     }
   } catch (e) {
+    // tslint:disable-next-line: no-console
     console.error('problem reading', m, ':', e)
     return null
   }

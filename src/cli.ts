@@ -17,4 +17,4 @@ const options: MainOpts = {
 }
 
 // tslint:disable-next-line
-main(program.args, options, true).run()
+main(program.args, options, true)()
